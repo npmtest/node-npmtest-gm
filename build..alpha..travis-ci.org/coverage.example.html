@@ -1,4 +1,6 @@
-<html lang="en"><head>
+<!doctype html>
+<html lang="en">
+<head>
     <title>Code coverage report for node-npmtest-gm/gm/lib/compare.js</title>
     <meta charset="utf-8">
     <style>
@@ -208,11 +210,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../../index.html">All files</a> » <a href="index.html">node-npmtest-gm/gm/lib/</a> » compare.js</div>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-gm/gm/lib/</a> &#187; compare.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tbody><tr><td class="line-count">1
+<tr><td class="line-count">1
 2
 3
 4
@@ -474,97 +476,97 @@ var spawn = require('cross-spawn');
  */
 &nbsp;
 module.exports = exports = function (proto) {
-<span class="fstat-no" title="function not covered">  function compare(orig, compareTo, options, cb) {</span>
+<span class="fstat-no" title="function not covered" >  function compare(orig, compareTo, options, cb) {</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">    var isImageMagick = this._options &amp;&amp; this._options.imageMagick;</span>
-<span class="cstat-no" title="statement not covered">    var appPath = this._options &amp;&amp; this._options.appPath || '';</span>
-<span class="cstat-no" title="statement not covered">    var bin = isImageMagick</span>
+<span class="cstat-no" title="statement not covered" >    var isImageMagick = this._options &amp;&amp; this._options.imageMagick;</span>
+<span class="cstat-no" title="statement not covered" >    var appPath = this._options &amp;&amp; this._options.appPath || '';</span>
+<span class="cstat-no" title="statement not covered" >    var bin = isImageMagick</span>
       ? appPath + 'compare' 
       : appPath + 'gm'
-<span class="cstat-no" title="statement not covered">    var args = ['-metric', 'mse', orig, compareTo]</span>
-<span class="cstat-no" title="statement not covered">    if (!isImageMagick) {</span>
-<span class="cstat-no" title="statement not covered">        args.unshift('compare');</span>
+<span class="cstat-no" title="statement not covered" >    var args = ['-metric', 'mse', orig, compareTo]</span>
+<span class="cstat-no" title="statement not covered" >    if (!isImageMagick) {</span>
+<span class="cstat-no" title="statement not covered" >        args.unshift('compare');</span>
     }
-<span class="cstat-no" title="statement not covered">    var tolerance = 0.4;</span>
+<span class="cstat-no" title="statement not covered" >    var tolerance = 0.4;</span>
     // outputting the diff image
-<span class="cstat-no" title="statement not covered">    if (typeof options === 'object') {</span>
+<span class="cstat-no" title="statement not covered" >    if (typeof options === 'object') {</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">      if (options.highlightColor &amp;&amp; options.highlightColor.indexOf('"') &lt; 0) {</span>
-<span class="cstat-no" title="statement not covered">        options.highlightColor = '"' + options.highlightColor + '"';</span>
+<span class="cstat-no" title="statement not covered" >      if (options.highlightColor &amp;&amp; options.highlightColor.indexOf('"') &lt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >        options.highlightColor = '"' + options.highlightColor + '"';</span>
       }
 &nbsp;
-<span class="cstat-no" title="statement not covered">      if (options.file) {</span>
-<span class="cstat-no" title="statement not covered">        if (typeof options.file !== 'string') {</span>
-<span class="cstat-no" title="statement not covered">          throw new TypeError('The path for the diff output is invalid');</span>
+<span class="cstat-no" title="statement not covered" >      if (options.file) {</span>
+<span class="cstat-no" title="statement not covered" >        if (typeof options.file !== 'string') {</span>
+<span class="cstat-no" title="statement not covered" >          throw new TypeError('The path for the diff output is invalid');</span>
         }
          // graphicsmagick defaults to red
-<span class="cstat-no" title="statement not covered">        if (options.highlightColor) {</span>
-<span class="cstat-no" title="statement not covered">            args.push('-highlight-color');</span>
-<span class="cstat-no" title="statement not covered">            args.push(options.highlightColor);</span>
+<span class="cstat-no" title="statement not covered" >        if (options.highlightColor) {</span>
+<span class="cstat-no" title="statement not covered" >            args.push('-highlight-color');</span>
+<span class="cstat-no" title="statement not covered" >            args.push(options.highlightColor);</span>
         }
-<span class="cstat-no" title="statement not covered">        if (options.highlightStyle) {</span>
-<span class="cstat-no" title="statement not covered">            args.push('-highlight-style')</span>
-<span class="cstat-no" title="statement not covered">            args.push(options.highlightStyle)</span>
+<span class="cstat-no" title="statement not covered" >        if (options.highlightStyle) {</span>
+<span class="cstat-no" title="statement not covered" >            args.push('-highlight-style')</span>
+<span class="cstat-no" title="statement not covered" >            args.push(options.highlightStyle)</span>
         }
         // For IM, filename is the last argument. For GM it's `-file &lt;filename&gt;`
-<span class="cstat-no" title="statement not covered">        if (!isImageMagick) {</span>
-<span class="cstat-no" title="statement not covered">            args.push('-file');</span>
+<span class="cstat-no" title="statement not covered" >        if (!isImageMagick) {</span>
+<span class="cstat-no" title="statement not covered" >            args.push('-file');</span>
         }
-<span class="cstat-no" title="statement not covered">        args.push(options.file);</span>
+<span class="cstat-no" title="statement not covered" >        args.push(options.file);</span>
       }
       
-<span class="cstat-no" title="statement not covered">      if (typeof options.tolerance != 'undefined') {</span>
-<span class="cstat-no" title="statement not covered">        if (typeof options.tolerance !== 'number') {</span>
-<span class="cstat-no" title="statement not covered">          throw new TypeError('The tolerance value should be a number');</span>
+<span class="cstat-no" title="statement not covered" >      if (typeof options.tolerance != 'undefined') {</span>
+<span class="cstat-no" title="statement not covered" >        if (typeof options.tolerance !== 'number') {</span>
+<span class="cstat-no" title="statement not covered" >          throw new TypeError('The tolerance value should be a number');</span>
         }
-<span class="cstat-no" title="statement not covered">        tolerance = options.tolerance;</span>
+<span class="cstat-no" title="statement not covered" >        tolerance = options.tolerance;</span>
       } 
     } else {
       // For ImageMagick diff file is required but we don't care about it, so null it out
-<span class="cstat-no" title="statement not covered">      if (isImageMagick) {</span>
-<span class="cstat-no" title="statement not covered">        args.push('null:');</span>
+<span class="cstat-no" title="statement not covered" >      if (isImageMagick) {</span>
+<span class="cstat-no" title="statement not covered" >        args.push('null:');</span>
       }
 &nbsp;
-<span class="cstat-no" title="statement not covered">      if (typeof options == 'function') {</span>
-<span class="cstat-no" title="statement not covered">        cb = options; </span>// tolerance value not provided, flip the cb place
+<span class="cstat-no" title="statement not covered" >      if (typeof options == 'function') {</span>
+<span class="cstat-no" title="statement not covered" >        cb = options; </span>// tolerance value not provided, flip the cb place
       } else {
-<span class="cstat-no" title="statement not covered">        tolerance = options</span>
+<span class="cstat-no" title="statement not covered" >        tolerance = options</span>
       }
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered">    var proc = spawn(bin, args);</span>
-<span class="cstat-no" title="statement not covered">    var stdout = '';</span>
-<span class="cstat-no" title="statement not covered">    var stderr = '';</span>
-<span class="cstat-no" title="statement not covered">    proc.stdout.on('data',<span class="fstat-no" title="function not covered">function(data) {</span> <span class="cstat-no" title="statement not covered">stdout+=data }</span>);</span>
-<span class="cstat-no" title="statement not covered">    proc.stderr.on('data',<span class="fstat-no" title="function not covered">function(data) {</span> <span class="cstat-no" title="statement not covered">stderr+=data }</span>);</span>
-<span class="cstat-no" title="statement not covered">    proc.on('close', <span class="fstat-no" title="function not covered">function (code) {</span></span>
+<span class="cstat-no" title="statement not covered" >    var proc = spawn(bin, args);</span>
+<span class="cstat-no" title="statement not covered" >    var stdout = '';</span>
+<span class="cstat-no" title="statement not covered" >    var stderr = '';</span>
+<span class="cstat-no" title="statement not covered" >    proc.stdout.on('data',<span class="fstat-no" title="function not covered" >function(data) {</span> <span class="cstat-no" title="statement not covered" >stdout+=data }</span>);</span>
+<span class="cstat-no" title="statement not covered" >    proc.stderr.on('data',<span class="fstat-no" title="function not covered" >function(data) {</span> <span class="cstat-no" title="statement not covered" >stderr+=data }</span>);</span>
+<span class="cstat-no" title="statement not covered" >    proc.on('close', <span class="fstat-no" title="function not covered" >function (code) {</span></span>
       // ImageMagick returns err code 2 if err, 0 if similar, 1 if dissimilar
-<span class="cstat-no" title="statement not covered">      if (isImageMagick) {</span>
-<span class="cstat-no" title="statement not covered">        if (code === 0) {</span>
-<span class="cstat-no" title="statement not covered">          return cb(null, 0 &lt;= tolerance, 0, stdout);</span>
+<span class="cstat-no" title="statement not covered" >      if (isImageMagick) {</span>
+<span class="cstat-no" title="statement not covered" >        if (code === 0) {</span>
+<span class="cstat-no" title="statement not covered" >          return cb(null, 0 &lt;= tolerance, 0, stdout);</span>
         }
-        else <span class="cstat-no" title="statement not covered">if (code === 1) {</span>
-<span class="cstat-no" title="statement not covered">          err = null;</span>
-<span class="cstat-no" title="statement not covered">          stdout = stderr;</span>
+        else <span class="cstat-no" title="statement not covered" >if (code === 1) {</span>
+<span class="cstat-no" title="statement not covered" >          err = null;</span>
+<span class="cstat-no" title="statement not covered" >          stdout = stderr;</span>
         } else {
-<span class="cstat-no" title="statement not covered">        return cb(stderr);</span>
+<span class="cstat-no" title="statement not covered" >        return cb(stderr);</span>
         }
       } else {
-<span class="cstat-no" title="statement not covered">        if(code !== 0) {</span>
-<span class="cstat-no" title="statement not covered">          return cb(stderr);</span>
+<span class="cstat-no" title="statement not covered" >        if(code !== 0) {</span>
+<span class="cstat-no" title="statement not covered" >          return cb(stderr);</span>
         }
       }
       // Since ImageMagick similar gives err code 0 and no stdout, there's really no matching
       // Otherwise, output format for IM is `12.00 (0.123)` and for GM it's `Total: 0.123`
-<span class="cstat-no" title="statement not covered">      var regex = isImageMagick ? /\((\d+\.?[\d\-\+e]*)\)/m : /Total: (\d+\.?\d*)/m;</span>
-<span class="cstat-no" title="statement not covered">      var match = regex.exec(stdout);</span>
-<span class="cstat-no" title="statement not covered">      if (!match) {</span>
-<span class="cstat-no" title="statement not covered">        err = new Error('Unable to parse output.\nGot ' + stdout);</span>
-<span class="cstat-no" title="statement not covered">        return cb(err);</span>
+<span class="cstat-no" title="statement not covered" >      var regex = isImageMagick ? /\((\d+\.?[\d\-\+e]*)\)/m : /Total: (\d+\.?\d*)/m;</span>
+<span class="cstat-no" title="statement not covered" >      var match = regex.exec(stdout);</span>
+<span class="cstat-no" title="statement not covered" >      if (!match) {</span>
+<span class="cstat-no" title="statement not covered" >        err = new Error('Unable to parse output.\nGot ' + stdout);</span>
+<span class="cstat-no" title="statement not covered" >        return cb(err);</span>
       }
 &nbsp;
-<span class="cstat-no" title="statement not covered">      var equality = parseFloat(match[1]);</span>
-<span class="cstat-no" title="statement not covered">      cb(null, equality &lt;= tolerance, equality, stdout, orig, compareTo);</span>
+<span class="cstat-no" title="statement not covered" >      var equality = parseFloat(match[1]);</span>
+<span class="cstat-no" title="statement not covered" >      cb(null, equality &lt;= tolerance, equality, stdout, orig, compareTo);</span>
     });
   }
 &nbsp;
@@ -576,11 +578,10 @@ module.exports = exports = function (proto) {
 &nbsp;
 &nbsp;
 &nbsp;</pre></td></tr>
-</tbody></table></pre>
+</table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 05:47:17 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Sat Apr 15 2017 21:55:34 GMT+0000 (UTC)</div>
 </div>
-
-
-</body></html>
+</body>
+</html>
